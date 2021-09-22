@@ -1,4 +1,4 @@
-# import numpy as np
+import numpy as np
 import mlp_relu
 
 def main():
@@ -12,6 +12,7 @@ def main():
 	mlp = mlp_relu.MLPReLU()
 
 	mlp.psome()
+	mlp.print_name()
 	print(mlp.add_one(5))
 	mlp.change_year(1996)
 
