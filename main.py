@@ -1,4 +1,4 @@
-import numpy as np
+# import numpy as np
 import mlp_relu
 
 def main():
@@ -9,9 +9,11 @@ def main():
 	# print("Loading training data...")
 	# raw_train = np.loadtxt("csv/mnist_train.csv", delimiter=",", skiprows=1)
 
-	mlp = mlp_relu.MLP_ReLU
+	mlp = mlp_relu.MLPReLU()
 
 	mlp.psome()
+	print(mlp.add_one(5))
+	mlp.change_year(1996)
 
 if __name__ == "__main__":
 	main()
