@@ -11,10 +11,5 @@ def main():
 
 	mlp = mlp_relu.MLPReLU()
 
-	mlp.psome()
-	mlp.print_name()
-	print(mlp.add_one(5))
-	mlp.change_year(1996)
-
 if __name__ == "__main__":
 	main()
