@@ -34,7 +34,7 @@ def main():
 	print("testing label shape: ", np.shape(labtest))
 	print("testing input size: ", np.shape(intest))
 	
-	mlp = mlp_relu.MLPReLU()
+	mlp = mlp_relu.MLPReLU(labtrain, intrain, labtest, intest, 100, 50, 10)
 
 if __name__ == "__main__":
 	main()

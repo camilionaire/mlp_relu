@@ -1,10 +1,23 @@
+import numpy as np
+import sys
 
+class MLPReLU:
 
-class MLPReLU():
+	def __init__(self, trl, trin, tstl, tstin, first, second, output):
+		self.trl = trl
+		self.trin = trin
+		self.tstl = tstl
+		self.tstin = tstin
+		self.numtr, self.numin = np.shape(trin)
+		self.numtst, compare = np.shape(tstin)
 
-	def __init__(self):
-		self.name = "Happy Gill"
-		self.year = 2021
+		if self.numin != compare:
+			sys.exit("The number of inputs for your test data vs. training data \
+				does not match up.  Please try again.")
+			
+		print(f"We have {self.numtr} training examples with {self.numin} inputs \
+			each.  {self.numtst} examples to test on.  {first + 1}, and {second + 1} \
+				 nodes in the middle for {output} outputs.")
 
 	def print_name(self):
 		print("My name is", self.name)
