@@ -2,4 +2,4 @@
 # csv files as they would be big.
 *.csv
 
-__pycache__
+__pycache__/*
