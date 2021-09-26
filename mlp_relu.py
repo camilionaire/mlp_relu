@@ -3,14 +3,17 @@ import sys
 
 class MLPReLU:
 
-	def __init__(self, trl, trin, tstl, tstin, first, second, output):
-		self.numtr, self.numin = np.shape(trin)
-		self.numtst, compare = np.shape(tstin)
-		if self.numin != compare:
-			sys.exit("The number of inputs for your test data vs. training data", \
-				"does not match up.  Please try again.")
+	# note, took out the training stuff to save time while building
+	def __init__(self, tstl, tstin, first, second, output):
+		# pausing training info to save time during building
+		# self.numtr, self.numin = np.shape(trin)
+		self.numtst, self.numin = np.shape(tstin)
+		# if self.numin != compare:
+		# 	sys.exit("The number of inputs for your test data vs. training data", \
+		# 		"does not match up.  Please try again.")
 
-		self.trl = trl
+		# pausing training info to save time during building
+		# self.trl = trl
 		self.tstl = tstl
 
 		#I don't know if I actually need this?...
@@ -24,10 +27,9 @@ class MLPReLU:
 
 		# so we already add in the bias to the inputs here.
 		# taking that out and doing it in forward propagation
-		self.trin = trin
+		# pausing training info to save time during building
+		# self.trin = trin
 		self.tstin = tstin
-		# self.trin = np.concatenate((np.ones((self.numtr, 1)), trin), axis=1) 
-		# self.tstin = np.concatenate((np.ones((self.numtst, 1)), tstin), axis=1)
 
 		# sets the weights between levels (including that for bias node)
 		self.firstweights = np.random.rand(self.numin + 1, first) / 10 - .05
@@ -35,7 +37,7 @@ class MLPReLU:
 		self.thirdweights = np.random.rand(second + 1, output) / 10 - .05
 			
 		# print statement so I know everything is working right... will delete later.
-		print(f"We have {self.numtr} training examples with {self.numin} inputs", \
+		print(f"We have no training examples (while building) with {self.numin} inputs", \
 			f"each.\n{self.numtst} examples to test on.\n{first + 1}", \
 				f"and {second + 1} nodes in the middle for {output} outputs.")
 

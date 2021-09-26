@@ -12,24 +12,29 @@ import mlp_relu
 def mnist_csv_format():
 	print("Loading test data...")
 	raw_test = np.loadtxt("mnist/mnist_test.csv", delimiter=",", skiprows=1)
-	print("Loading training data...")
-	raw_train = np.loadtxt("mnist/mnist_train.csv", delimiter=",", skiprows=1)
+	# took out to save time during building
+	# print("Loading training data...")
+	# raw_train = np.loadtxt("mnist/mnist_train.csv", delimiter=",", skiprows=1)
 
 	print("Formating info...")
-	lab_train = raw_train[:, 0]
-	in_train = raw_train[:, 1:] / 256
+	# took out to save time during building
+	# lab_train = raw_train[:, 0]
+	# in_train = raw_train[:, 1:] / 256
 
 	lab_test = raw_test[:, 0]
 	in_test = raw_test[:, 1:] / 256
 
-	return lab_train, in_train, lab_test, in_test
+	# took out training stuff to save time during building
+	return lab_test, in_test
 
 def main():
 	# basic print statements and loading of data...
 	print("Starting program...")
-	labtrain, intrain, labtest, intest = mnist_csv_format()
+	# took out the trainning info to save time while building
+	labtest, intest = mnist_csv_format()
 
-	mlp = mlp_relu.MLPReLU(labtrain, intrain, labtest, intest, 100, 50, 10)
+	# took out the trainning info to save time while building
+	mlp = mlp_relu.MLPReLU(labtest, intest, 100, 50, 10)
 
 	mlp.testing()
 
