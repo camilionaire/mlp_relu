@@ -17,10 +17,10 @@ def mnist_csv_format():
 
 	print("Formating info...")
 	lab_train = raw_train[:, 0]
-	in_train = raw_train[:, 1:]
+	in_train = raw_train[:, 1:] / 256
 
 	lab_test = raw_test[:, 0]
-	in_test = raw_test[:, 1:]
+	in_test = raw_test[:, 1:] / 256
 
 	return lab_train, in_train, lab_test, in_test
 
@@ -30,6 +30,8 @@ def main():
 	labtrain, intrain, labtest, intest = mnist_csv_format()
 
 	mlp = mlp_relu.MLPReLU(labtrain, intrain, labtest, intest, 100, 50, 10)
+
+	mlp.testing()
 
 if __name__ == "__main__":
 	main()
